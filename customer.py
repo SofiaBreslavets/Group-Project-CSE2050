@@ -4,7 +4,7 @@ class Customer():
         """ Initializes customer class with an id, name, and a shopping cart"""
         self.customer_id = customer_id
         self.name = name
-        self.cart = shopping_cart.ShoppingCart()
+        self.cart = ShoppingCart()
         return
 
     def get_id(self):
