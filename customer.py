@@ -1,4 +1,4 @@
-import shopping_cart
+import cart
 class Customer():
     def __init__(self, customer_id: str, name: str):
         """ Initializes customer class with an id, name, and a shopping cart"""
