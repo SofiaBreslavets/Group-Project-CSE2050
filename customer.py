@@ -18,3 +18,6 @@ class Customer():
     def get_cart(self):
         """ Returns customer's shopping cart"""
         return self.cart
+
+    def __repr__(self):
+        return self.name
