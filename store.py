@@ -12,7 +12,7 @@ class Store():
     def add_customer(self, customer: Customer):
         """Adds customer to database"""
         if customer.customer_id in self.customer_ids:
-                            return False
+            return False
         self.customers.append(customer)
         self.customer_ids.append(customer.customer_id)
         return True
@@ -32,6 +32,14 @@ class Store():
             if customer.customer_id == customer_id:
                 return customer
         return None
+    
+    def find_product(self, product_id: str):
+        """Finds product by id"""
+        for product in self.products:
+            if product.product_id == product_id:
+                return product
+        return None
+
     
     def find_product(self, product_id: str):
         """Finds product by id"""
