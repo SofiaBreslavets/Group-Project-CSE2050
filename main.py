@@ -3,7 +3,7 @@ import unittest
 
 from customer import Customer
 from product import Product
-from shopping_cart import ShoppingCart
+from cart import ShoppingCart
 
 
 class test2_customer(unittest.TestCase):
