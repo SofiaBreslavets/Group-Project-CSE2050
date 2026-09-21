@@ -31,5 +31,3 @@ class ShoppingCart():
     def is_empty(self):
         """ Returns true when there's no products and false otherwise"""
         return len(self.items) == 0
-
-    
