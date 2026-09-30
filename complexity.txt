@@ -1,0 +1,19 @@
+LinkedList.add_first = O()
+
+LinkedList.add_last = O()
+
+LinkedList.remove_first = O()
+
+Stack.push = O()
+
+Stack.pop = O()
+
+OrderQueue.enqueue = O()
+
+OrderQueue.dequeue = O()
+
+Store.find_product = O()
+
+Store.find_customer = O()
+
+Store.find_order = O()
