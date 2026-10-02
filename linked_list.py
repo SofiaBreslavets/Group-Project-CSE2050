@@ -15,11 +15,7 @@ class linked_list:
         if self.head is not None:
             return self.head.item
         return None
-    def get_tail(self):
-        if self.tail is not None:
-            return self.tail.item
-        return None
-
+    
     def add_last(self, item):
         node = Node(item)
         if len(self) == 0:
@@ -47,18 +43,12 @@ class linked_list:
             self._head = self._head.link
         self._len -= 1
         return ret
+    
+    def is_empty(self):
+        if self.len == 0:
+            return True
+        else:
+            False
 
-    def remove_last(self):
-        if len(self) <= 1:
-            return self.remove_first()
-        ret = self.get_tail()
-        curr = self._head
-        while curr.link.link is not None:
-            curr = curr.link
-        curr.link = None
-        self._tail = curr
-
-
-
-        self._len -= 1
-        return ret
+    def size(self):
+        return self._len
