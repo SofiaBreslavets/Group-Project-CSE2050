@@ -1,18 +1,24 @@
-class stack:
+from linked_list import linked_list
+
+class stack:                                    #LIFO
     def __init__(self):
-        pass
+        self.linked_list = linked_list()
 
-    def push(item):
-        pass
+    def push(self, item):
+        self.linked_list.add_first(item)
+   
+    def pop(self):
+        self.linked_list.remove_first()
 
-    def pop():
-        pass
+    def peek(self):
+        self.linked_list.get_head()
 
-    def peek():
-        pass
+    def is_empty(self):
+        if len(self.linked_list) == 0:
+            return True
+        else: False
 
-    def is_empty():
-        pass
+    def size(self):
+        return len(self.linked_list)
 
-    def size():
-        pass
+my_list = linked_list()
