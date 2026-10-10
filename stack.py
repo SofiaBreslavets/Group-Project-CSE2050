@@ -1,6 +1,6 @@
 from linked_list import linked_list
 
-class stack:                                    #LIFO
+class Stack:
     def __init__(self):
         self.linked_list = linked_list()
 
@@ -8,17 +8,23 @@ class stack:                                    #LIFO
         self.linked_list.add_first(item)
    
     def pop(self):
-        self.linked_list.remove_first()
+        if self.is_empty() or self.linked_list._head is None:
+            raise IndexError("Stack is empty")
+        return self.linked_list.remove_first()
 
     def peek(self):
-        self.linked_list.get_head()
+        if self.is_empty():
+            raise IndexError("Queue is empty")
+        return self.linked_list.get_head()
 
     def is_empty(self):
-        if len(self.linked_list) == 0:
-            return True
-        else: False
+        return len(self.linked_list) == 0
 
     def size(self):
         return len(self.linked_list)
 
+    def __len__(self):
+        return self.linked_list.size() 
+
 my_list = linked_list()
+
