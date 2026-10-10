@@ -12,10 +12,10 @@ class linked_list:
         return self._len
 
     def get_head(self):
-        if self.head is not None:
-            return self.head.item
+        if self._head is not None:
+            return self._head.item
         return None
-    
+
     def add_last(self, item):
         node = Node(item)
         if len(self) == 0:
@@ -26,29 +26,29 @@ class linked_list:
         self._len += 1
 
     def add_first(self, item):
-        if len(self) == 0: 
+        if len(self) == 0:
             self.add_last(item)
         else:
-            node = Node(item, link = self._head)
+            node = Node(item, link=self._head)
             self._head = node
             self._len += 1
 
     def remove_first(self):
-        if len(self) == 0:
-            raise NotImplementedError("Cant remove from empty list")
-        ret = self.get_head()
-        if len(self) == 1:
-            self._head = self._tail = None
-        else:
-            self._head = self._head.link
+        if self._head is None or self.is_empty():
+            raise RuntimeError("Cant remove from empty list")
+        
+        head_node = self._head
+        ret = head_node.item if hasattr(head_node, 'item') else head_node
+        
+        self._head = self._head.link
         self._len -= 1
+        
+        if self._head is None:
+            self._tail = None
+            
         return ret
-    
     def is_empty(self):
-        if self.len == 0:
-            return True
-        else:
-            False
+        return self._len == 0
 
     def size(self):
         return self._len
