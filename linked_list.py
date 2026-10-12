@@ -30,29 +30,28 @@ class linked_list:
         self._len += 1
 
     def add_first(self, item):
-        """ Adds an item to the front of the list"""
-        if len(self) == 0:
-            self.add_last(item)
-        else:
-            node = Node(item, link=self._head)
-            self._head = node
-            self._len += 1
+        """Adds an item to the front of the list"""
+        node = Node(item, link=self._head)
+        self._head = node
+
+        if self._len == 0:
+            self._tail = node
+
+        self._len += 1
 
     def remove_first(self):
-        """ Removes the first item from the list and returns it"""
-        if self._head is None or self.is_empty():
+        """Removes the first item from the list and returns it"""
+        if self._len == 0:
             raise RuntimeError("Cant remove from empty list")
-        
-        head_node = self._head
-        ret = head_node.item if hasattr(head_node, 'item') else head_node
-        
-        self._head = self._head.link
+
+        node = self._head
+        self._head = node.link
         self._len -= 1
-        
-        if self._head is None:
+
+        if self._len == 0:
             self._tail = None
-            
-        return ret
+
+        return node.item
     
     def is_empty(self):
         """ returns true of the ist is empty and false otherwise"""
