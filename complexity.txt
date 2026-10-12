@@ -1,19 +1,19 @@
-LinkedList.add_first = O(1)
+LinkedList.add_first = O(1) - appends something to the front of the linked list which will only change the head and the head's link
 
-LinkedList.add_last = O(1)
+LinkedList.add_last = O(1) - appends something to the back of the linked list which will only change the tail and the tail's link
 
-LinkedList.remove_first = O(1)
+LinkedList.remove_first = O(1) - removes the head 
 
-Stack.push = O(1)
+Stack.push = O(1) - adds the element to the 
 
-Stack.pop = O(1)
+Stack.pop = O(1) - removes the element to the
 
-OrderQueue.enqueue = O(1)
+OrderQueue.enqueue = O(1) - adds the element to the 
 
-OrderQueue.dequeue = O(1)
+OrderQueue.dequeue = O(1) - removes the element to the
 
-Store.find_product = O(n)
+Store.find_product = O(n) - this function will go through the 
 
-Store.find_customer = O(n)
+Store.find_customer = O(n) -this function will go through the 
 
-Store.find_order = O(n)
+Store.find_order = O(n) - this function will go through the 
