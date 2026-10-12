@@ -1,4 +1,4 @@
-from stack import Stack
+from stack import stack
 from order_queue import order_queue
 from customer import Customer
 from product import Product
@@ -14,7 +14,7 @@ class Store:
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.checkout_queue = order_queue()
-        self.processed_stack = Stack()
+        self.processed_stack = stack()
         self.order_counter: int = 0
 
     def add_customer(self, customer: Customer):
