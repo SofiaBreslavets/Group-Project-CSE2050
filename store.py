@@ -51,7 +51,7 @@ class Store:
     def checkout(self, customer_id: str):
         """ Adds customer's cart to checkout queue, returns the order object if successful """
         customer = self.find_customer(customer_id)
-        if not customer or not getattr(customer, 'cart', None):
+        if (not customer or not hasattr(customer, 'cart') or customer.cart.is_empty()):
             return None
         
         self.order_counter += 1
