@@ -3,7 +3,6 @@ from order_queue import order_queue
 from customer import Customer
 from product import Product
 from order import Order
-from customer import Customer
 from order_queue import order_queue
 from stack import Stack
 
@@ -74,5 +73,3 @@ class Store:
             history.append(curr.item)
             curr = curr.link
         return history
-                return product
-        return None
