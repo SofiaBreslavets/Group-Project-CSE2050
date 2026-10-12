@@ -4,13 +4,13 @@ LinkedList.add_last = O(1) - appends something to the back of the linked list wh
 
 LinkedList.remove_first = O(1) - removes the head 
 
-Stack.push = O(1) - adds the element to the 
+Stack.push = O(1) - uses LinkedList.add_first
 
-Stack.pop = O(1) - removes the element to the
+Stack.pop = O(1) - uses LinkedList.remove_first
 
-OrderQueue.enqueue = O(1) - adds the element to the 
+OrderQueue.enqueue = O(1) - uses LinkedList.add_first 
 
-OrderQueue.dequeue = O(1) - removes the element to the
+OrderQueue.dequeue = O(1) - uses LinkedList.add_first
 
 Store.find_product = O(n) - this function will go through the 
 
