@@ -1,6 +1,6 @@
 import linked_list
 
-class Stack:
+class stack:
     def __init__(self):
         """ Initializes a stack using a linked list"""
         self.linked_list = linked_list()
