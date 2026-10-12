@@ -1,3 +1,10 @@
+import stack, order_queue, linked_list
+print("Stack:", stack)
+print("order_queue:", order_queue)
+print("linked_list:", linked_list)
+
+
+
 import unittest
 from store import Store
 from order import Order
