@@ -11,14 +11,10 @@ class order_queue:
 
     def dequeue(self):
         """ Removes and returns the item at the front of the queue"""
-        if self.is_empty() or self.linked_list._head is None:
-            raise IndexError("Queue is empty")
         return self.linked_list.remove_first()
 
     def peek(self):
         """ Returns the item at the front of the queue"""
-        if self.is_empty():
-            raise IndexError("Queue is empty")
         return self.linked_list.get_head()
 
     def is_empty(self):
@@ -28,10 +24,6 @@ class order_queue:
     def size(self):
         """ Returns the size of the queue"""
         return len(self.linked_list)
-
-    def top(self):
-        """ Returns the head of the queue"""
-        return getattr(self.linked_list, '_head', None)
 
     def __len__(self):
         """ Returns the length of the queue"""
