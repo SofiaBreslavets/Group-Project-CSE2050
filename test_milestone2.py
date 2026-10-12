@@ -16,6 +16,7 @@ class TestStoreSystem(unittest.TestCase):
         self.order = Order("ORD-001", self.customer, [self.prod1, self.prod2])
 
     def test_order_creation_and_status(self):
+        """"sets up an order and sets a status to it"""
         self.assertEqual(self.order.get_id(), "ORD-001")
         self.assertEqual(self.order.status, "PENDING")
         
@@ -26,6 +27,7 @@ class TestStoreSystem(unittest.TestCase):
             self.order.set_status("INVALID_STATUS")
 
     def test_order_total_and_cart_independence(self):
+        
         self.assertEqual(self.order.calculate_total(), 1225.00)
         
         order2 = Order("ORD-002", self.customer, [self.prod2])
@@ -33,6 +35,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(len(self.order.items), 2)
 
     def test_linked_list_add_first_and_last(self):
+        """adds first and lastr elements to the linked list and checks the head and size of it"""
         ll = linked_list()
         ll.add_last(10)
         ll.add_last(20)
@@ -42,6 +45,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(ll.size(), 3)
 
     def test_linked_list_remove_first(self):
+        """uses a defined linked liost and performs the function and checks the list"""
         ll = linked_list([10, 20, 30])
         removed = ll.remove_first()
         
@@ -50,6 +54,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(ll.size(), 2)
 
     def test_linked_list_empty_and_size_behavior(self):
+        """checks if a list is empty and checks if after adiing an element thgat it is not empty anymore."""
         ll = linked_list()
         self.assertTrue(ll.is_empty())
         self.assertEqual(ll.size(), 0)
@@ -60,11 +65,13 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(ll.size(), 1)
 
     def test_linked_list_remove_empty_error(self):
+        """tests that if ypou try to remove an element from an empty linked list that it will raise an error"""
         ll = linked_list()
         with self.assertRaises(RuntimeError):
             ll.remove_first()
 
     def test_stack_lifo_order(self):
+        """tests if the stcack implements LIFO behavior"""
         stack = Stack()
         stack.push("First")
         stack.push("Second")
@@ -74,6 +81,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertTrue(stack.is_empty())
 
     def test_stack_peek(self):
+        """tests the peek function for the stack"""
         stack = Stack()
         stack.push(100)
         stack.push(200)
@@ -82,6 +90,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(len(stack), 2)
 
     def test_stack_empty_pop_error(self):
+        """tests that if you try to pop or peek an empty list that it will raise an error"""
         stack = Stack()
         with self.assertRaises(IndexError):
             stack.pop()
@@ -89,6 +98,7 @@ class TestStoreSystem(unittest.TestCase):
             stack.peek()
 
     def test_order_queue_fifo_order(self):
+        """tests that the order_queue implements FIFO behavior"""
         queue = order_queue()
         queue.enqueue("Order_A")
         queue.enqueue("Order_B")
@@ -98,6 +108,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertTrue(queue.is_empty())
 
     def test_order_queue_peek(self):
+        """tests the peek function for the order_queue"""
         queue = order_queue()
         queue.enqueue("First_InLine")
         queue.enqueue("Second_InLine")
@@ -106,11 +117,13 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(len(queue), 2)
 
     def test_order_queue_empty_dequeue_error(self):
+        """tests that if you try to dequeue something from an empty queue that it will raise an error"""
         queue = order_queue()
         with self.assertRaises(IndexError):
             queue.dequeue()
 
     def test_store_checkout_workflow(self):
+        """tests the workflow of the store then checks that the queue is appended"""
         store = Store()
         store.add_customer(self.customer)
         self.customer.cart.add_product(self.prod1)
@@ -120,6 +133,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertEqual(store.checkout_queue.peek().get_id(), "ORD-001")
 
     def test_store_processing_workflow(self):
+        """tests the workflow of the store then checks if the order correctly processes"""
         store = Store()
         store.add_customer(self.customer)
         self.customer.cart.add_product(self.prod1)
@@ -131,6 +145,7 @@ class TestStoreSystem(unittest.TestCase):
         self.assertFalse(store.processed_stack.is_empty())
 
     def test_store_history_workflow(self):
+        """tests the workflow of the store then checks that the order history is correctly adjusted""""
         store = Store()
         store.add_customer(self.customer)
         self.customer.cart.add_product(self.prod1)
