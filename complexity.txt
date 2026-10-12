@@ -8,9 +8,9 @@ Stack.push = O(1) - uses LinkedList.add_first
 
 Stack.pop = O(1) - uses LinkedList.remove_first
 
-OrderQueue.enqueue = O(1) - uses LinkedList.add_first 
+OrderQueue.enqueue = O(1) - uses LinkedList.add_last 
 
-OrderQueue.dequeue = O(1) - uses LinkedList.add_first
+OrderQueue.dequeue = O(1) - uses LinkedList.remove_first
 
 Store.find_product = O(n) - this function will go through the 
 
