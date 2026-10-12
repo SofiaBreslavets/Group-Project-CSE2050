@@ -81,3 +81,7 @@ class Store:
             history.append(curr.item)
             curr = curr.link
         return history
+        
+    def top(self):
+        return getattr(self.linked_list, '_head', None)
+
