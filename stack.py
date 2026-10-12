@@ -32,3 +32,6 @@ class stack:
     def __len__(self):
         """ Returns the length of the stack"""
         return self.linked_list.size() 
+    
+    def top(self):
+        return getattr(self.linked_list, '_head', None)
