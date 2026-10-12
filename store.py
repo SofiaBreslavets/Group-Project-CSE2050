@@ -77,4 +77,4 @@ class Store:
     while curr:
         history.append(curr.item)
         curr = curr.link
-    retrurn history
+    return history
