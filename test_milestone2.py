@@ -3,7 +3,7 @@ from store import Store
 from order import Order
 from order_queue import order_queue
 from customer import Customer
-from stack import Stack
+from stack import stack
 from product import Product
 from linked_list import linked_list
 
@@ -72,7 +72,7 @@ class TestStoreSystem(unittest.TestCase):
 
     def test_stack_lifo_order(self):
         """tests if the stcack implements LIFO behavior"""
-        stack = Stack()
+        stack = stack()
         stack.push("First")
         stack.push("Second")
         
@@ -82,7 +82,7 @@ class TestStoreSystem(unittest.TestCase):
 
     def test_stack_peek(self):
         """tests the peek function for the stack"""
-        stack = Stack()
+        stack = stack()
         stack.push(100)
         stack.push(200)
         
@@ -91,7 +91,7 @@ class TestStoreSystem(unittest.TestCase):
 
     def test_stack_empty_pop_error(self):
         """tests that if you try to pop or peek an empty list that it will raise an error"""
-        stack = Stack()
+        stack = stack()
         with self.assertRaises(IndexError):
             stack.pop()
         with self.assertRaises(IndexError):
