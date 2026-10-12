@@ -12,8 +12,8 @@ OrderQueue.enqueue = O(1) - uses LinkedList.add_last
 
 OrderQueue.dequeue = O(1) - uses LinkedList.remove_first
 
-Store.find_product = O(n) - this function will go through the 
+Store.find_product = O(n) - this function will go through the list of products to find the product
 
-Store.find_customer = O(n) -this function will go through the 
+Store.find_customer = O(n) - this function will go through the list of customers to find the customer
 
-Store.find_order = O(n) - this function will go through the 
+Store.find_order = O(n) - this function will go through the list of orders to find the order
