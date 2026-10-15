@@ -19,7 +19,7 @@ class Stack:
         """ Returns the item at the top of the stack"""
         if self.is_empty():
             return None
-        return self.LinkedList.get_head()
+        return self.LinkedList.get_first()
 
     def is_empty(self):
         """ Returns true if stack is empty and false otherwise"""
