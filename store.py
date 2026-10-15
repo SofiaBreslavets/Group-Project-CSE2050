@@ -13,7 +13,7 @@ class Store:
         self.product_ids: list[str] = []
         self.price: list[float] = []
         self.orders: list[Order] = []
-        self.checkout_queue = Order_queue()
+        self.checkout_queue = OrderQueue()
         self.processed_stack = Stack()
         self.order_counter: int = 0
 
