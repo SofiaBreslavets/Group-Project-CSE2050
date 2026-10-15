@@ -1,5 +1,5 @@
 from stack import Stack
-from order_queue import Order_queue
+from order_queue import OrderQueue
 from customer import Customer
 from product import Product
 from order import Order
