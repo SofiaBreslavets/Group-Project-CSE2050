@@ -1,4 +1,4 @@
-from stack import stack
+from stack import Stack
 from order_queue import order_queue
 from customer import Customer
 from product import Product
