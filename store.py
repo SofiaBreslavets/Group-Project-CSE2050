@@ -14,7 +14,8 @@ class Store:
         self.product_ids: list[str] = []
         self.price: list[float] = []
         self.orders: list[Order] = []
-        self.checkout_queue = OrderQueue()
+        self.order_queue = OrderQueue()
+        self.checkout_queue = self.order_queue
         self.processed_stack = Stack()
         self.order_counter: int = 0
 
@@ -56,11 +57,10 @@ class Store:
             return None
         
         self.order_counter += 1
-      
         order = Order(f"O{self.order_counter}", customer, list(customer.cart.get_items()))
         
         self.orders.append(order)
-        self.checkout_queue.enqueue(order)
+        self.order_queue.enqueue(order) 
         customer.cart.clear()
         return order
     
