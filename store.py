@@ -14,7 +14,7 @@ class Store:
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.checkout_queue = Order_queue()
-        self.processed_stack = stack()
+        self.processed_stack = Stack()
         self.order_counter: int = 0
 
     def add_customer(self, customer: Customer):
