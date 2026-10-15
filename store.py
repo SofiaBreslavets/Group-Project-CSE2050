@@ -1,5 +1,5 @@
 from stack import Stack
-from order_queue import order_queue
+from order_queue import Order_queue
 from customer import Customer
 from product import Product
 from order import Order
@@ -13,7 +13,7 @@ class Store:
         self.product_ids: list[str] = []
         self.price: list[float] = []
         self.orders: list[Order] = []
-        self.checkout_queue = order_queue()
+        self.checkout_queue = Order_queue()
         self.processed_stack = stack()
         self.order_counter: int = 0
 
