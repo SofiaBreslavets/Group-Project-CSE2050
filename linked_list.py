@@ -3,7 +3,8 @@ from node import Node
 class linked_list:
     def __init__(self, items=None):
         """Initializes a linked list"""
-        self._head = self._tail = None
+        self._head = None
+        self._tail = None
         self._len = 0
         if items is not None:
             for item in items:
@@ -21,7 +22,7 @@ class linked_list:
 
     def add_last(self, item):
         """ Adds an item to the end of the list"""
-        node = Node(item,)
+        node = Node(item)
         if len(self) == 0:
             self._head = node
         else:
