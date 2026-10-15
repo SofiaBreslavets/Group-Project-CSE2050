@@ -1,6 +1,6 @@
 from node import Node
 
-class linked_list:
+class LinkedList:
     def __init__(self, items=None):
         """Initializes the linked list, optionally with an iterable of items."""
         self._head = None
