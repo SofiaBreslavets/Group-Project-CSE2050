@@ -49,14 +49,14 @@ class Store:
         """ Returns a list of all orders"""
         return self.orders
 
-   def checkout(self, customer_id: str):
+  def checkout(self, customer_id: str):
         """Adds customer's cart to checkout queue, returns the order object if successful"""
         customer = self.find_customer(customer_id)
         if not customer or not hasattr(customer, 'cart') or customer.cart.is_empty():
             return None
         
         self.order_counter += 1
-    
+      
         order = Order(f"O{self.order_counter}", customer, list(customer.cart.get_items()))
         
         self.orders.append(order)
