@@ -11,10 +11,14 @@ class order_queue:
 
     def dequeue(self):
         """ Removes and returns the item at the front of the queue"""
+        if self.is_empty():
+            return None
         return self.linked_list.remove_first()
 
     def peek(self):
         """ Returns the item at the front of the queue"""
+        if self.is_empty():
+            return None
         return self.linked_list.get_head()
 
     def is_empty(self):
