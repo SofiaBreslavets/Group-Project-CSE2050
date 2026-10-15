@@ -19,7 +19,7 @@ class OrderQueue:
         """ Returns the item at the front of the queue"""
         if self.is_empty():
             return None
-        return self.LinkedList.get_head()
+        return self.LinkedList.get_first()
 
     def is_empty(self):
         """ Returns true if queue is empty, false otherwise"""
