@@ -1,34 +1,34 @@
-from linked_list import linked_list
+from linked_list import LinkedList
 
 class Stack:
     def __init__(self):
         """ Initializes a stack using a linked list"""
-        self.linked_list = linked_list()
+        self.LinkedList = LinkedList()
 
     def push(self, item):
         """ Adds an item to the top of the stack"""
-        self.linked_list.add_first(item)
+        self.LinkedList.add_first(item)
    
     def pop(self):
         """ Removes and returns the item at the top of the stack"""
         if self.is_empty():
             return None
-        return self.linked_list.remove_first()
+        return self.LinkedList.remove_first()
 
     def peek(self):
         """ Returns the item at the top of the stack"""
         if self.is_empty():
             return None
-        return self.linked_list.get_head()
+        return self.LinkedList.get_head()
 
     def is_empty(self):
         """ Returns true if stack is empty and false otherwise"""
-        return len(self.linked_list) == 0
+        return len(self.LinkedList) == 0
 
     def size(self):
         """ Returns the size of the stack"""
-        return len(self.linked_list)
+        return len(self.LinkedList)
 
     def __len__(self):
         """ Returns the length of the stack"""
-        return self.linked_list.size() 
+        return self.LinkedList.size() 
