@@ -1,6 +1,6 @@
 from linked_list import linked_list
 
-class order_queue:
+class Order_queue:
     def __init__(self):
         """ Initializes an order queue using a linked list"""
         self.linked_list = linked_list()
