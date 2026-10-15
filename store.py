@@ -72,7 +72,7 @@ class Store:
     def get_order_history(self):
         """Returns a list of processed orders in order (most recent first)"""
         history = []
-        curr = self.processed_stack.linked_list._head
+        curr = self.processed_stack.LinkedList._head
         while curr:
             history.append(curr.item)
             curr = curr.link
