@@ -48,8 +48,8 @@ class Store:
     def get_orders(self):
         """ Returns a list of all orders"""
         return self.orders
-
-  def checkout(self, customer_id: str):
+    
+    def checkout(self, customer_id: str):
         """Adds customer's cart to checkout queue, returns the order object if successful"""
         customer = self.find_customer(customer_id)
         if not customer or not hasattr(customer, 'cart') or customer.cart.is_empty():
@@ -63,7 +63,7 @@ class Store:
         self.checkout_queue.enqueue(order)
         customer.cart.clear()
         return order
-
+    
     def process_next_order(self):
         """ Processestthe next order in the checkout queue, returns the order"""
         if self.checkout_queue.is_empty(): 
