@@ -15,7 +15,7 @@ class LinkedList:
         """Returns the length of the list."""
         return self._len
 
-    def get_head(self):
+    def get_first(self):
         """Returns the head item of the list."""
         if self._head is not None:
             return self._head.item
