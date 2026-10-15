@@ -3,6 +3,7 @@ from order_queue import OrderQueue
 from customer import Customer
 from product import Product
 from order import Order
+from cart import ShoppingCart
 
 class Store:
     """ Initializes a store class with customer, products, orders, and checkout queue """
