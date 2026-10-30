@@ -4,6 +4,14 @@ from customer import Customer
 from product import Product
 from order import Order
 from cart import ShoppingCart
+from algorithms import (
+    bubble_sort,
+    selection_sort,
+    insertion_sort,
+    binary_search,
+    recursive_total_price,
+    fewest_coins
+)
 
 class Store:
     """ Initializes a store class with customer, products, orders, and checkout queue """
@@ -80,3 +88,32 @@ class Store:
             history.append(curr.item)
             curr = curr.link
         return history
+
+    def bubble_sort_products(self):
+        """Sorts products by product ID using bubble sort."""
+        bubble_sort(self.products)
+
+    def selection_sort_products(self):
+        """Sorts products by product ID using selection sort."""
+        selection_sort(self.products)
+
+    def insertion_sort_products(self):
+        """Sorts products by product ID using insertion sort."""
+        insertion_sort(self.products)
+
+    def binary_search_product(self, product_id: str):
+        """Finds and returns a product using binary search."""
+        index = binary_search(self.products, product_id)
+
+        if index == -1:
+            return None
+
+        return self.products[index]
+
+    def recursive_catalog_total(self):
+        """Returns the total price of all products recursively."""
+        return recursive_total_price(self.products)
+
+    def calculate_change(self, coins: list[int], amount: int):
+        """Returns the fewest coins needed to make the given amount."""
+        return fewest_coins(coins, amount)
