@@ -4,30 +4,25 @@ def recursive_total_price(products):
     return products[0].price + recursive_total_price(products[1:])
 
 def fewest_coins(coins, amount):
-    if amount < 0:
-        return []
     if any(coin <= 0 for coin in coins):
         raise ValueError("Coin values must be positive")
 
-    min_counts = [float('inf')] * (amount + 1)
-    last_coin = [None] * (amount + 1)
-    min_counts[0] = 0
+    memo = {0: 0}
 
-    for current_amount in range(1, amount + 1):
+    def min_coins(remaining):
+        if remaining < 0:
+            return float('inf')
+        if remaining in memo:
+            return memo[remaining]
+
+        best = float('inf')
         for coin in coins:
-            if coin <= current_amount and min_counts[current_amount - coin] + 1 < min_counts[current_amount]:
-                min_counts[current_amount] = min_counts[current_amount - coin] + 1
-                last_coin[current_amount] = coin
+            best = min(best, min_coins(remaining - coin) + 1)
+        memo[remaining] = best
+        return best
 
-    if last_coin[amount] is None and amount != 0:
-        return []
-
-    result = []
-    while amount > 0:
-        coin = last_coin[amount]
-        result.append(coin)
-        amount -= coin
-    return result[::-1]
+    result = min_coins(amount)
+    return -1 if result == float('inf') else result
 
 
 def bubble_sort(products):
@@ -63,10 +58,12 @@ def binary_search(products, product_id):
     left, right = 0, len(products) - 1
     while left <= right:
         mid = left + (right - left) // 2
-        if products[mid].product_id == product_id:
-            return products[mid]
-        elif products[mid].product_id < product_id:
+        current_id = getattr(products[mid], "product_id", products[mid])
+        if current_id == product_id:
+            return mid
+        elif current_id < product_id:
             left = mid + 1
         else:
             right = mid - 1
-    return None
+    return -1
+    
