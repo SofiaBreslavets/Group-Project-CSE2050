@@ -1,19 +1,47 @@
-LinkedList.add_first = O(1) - appends something to the front of the linked list which will only change the head and the head's link
+Big O time complexity for M2 - (Scroll down for M3)
+    
+    LinkedList.add_first = O(1)
 
-LinkedList.add_last = O(1) - appends something to the back of the linked list which will only change the tail and the tail's link
+    LinkedList.add_last = O(1)
 
-LinkedList.remove_first = O(1) - removes the head 
+    LinkedList.remove_first = O(1)
 
-Stack.push = O(1) - uses LinkedList.add_first
+    Stack.push = O(1)
 
-Stack.pop = O(1) - uses LinkedList.remove_first
+    Stack.pop = O(1)
 
-OrderQueue.enqueue = O(1) - uses LinkedList.add_last 
+    OrderQueue.enqueue = O(1)
 
-OrderQueue.dequeue = O(1) - uses LinkedList.remove_first
+    OrderQueue.dequeue = O(1)
 
-Store.find_product = O(n) - this function will go through the list of products to find the product
+    Store.find_product = O(n)
 
-Store.find_customer = O(n) - this function will go through the list of customers to find the customer
+    Store.find_customer = O(n)
 
-Store.find_order = O(n) - this function will go through the list of orders to find the order
+    Store.find_order = O(n)
+
+Big O time complexity for M3
+
+    recursive_total_price = O(n^2)
+
+    fewest_coins(memoized) = O(n^2)
+
+    bubble_sort = O(n^2)
+
+    selection_sort = O(n^2)
+
+    insertion_sort = O(n^2) 
+
+    binary_search = O(log n)
+
+    Store.bubble_sort_products = O(n^2)
+
+    Store.selection_sort_products = O(n^2)
+
+    Store.insertion_sort_products = O(n^2)
+
+    Store.binary_search_product = O(log n)
+    
+    Store.recursive_catalog_total = O(n^2)
+
+    Store.calculate_change = O(n^2)
