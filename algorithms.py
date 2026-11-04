@@ -66,4 +66,13 @@ def binary_search(products, product_id):
         else:
             right = mid - 1
     return -1
+
+def quick_sort(products):
+    pass
+
+def merge_sort(products):
+    pass
+
+def quick_select(products, k):
+    pass
     
