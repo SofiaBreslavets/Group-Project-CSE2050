@@ -65,6 +65,7 @@ class HashMapping:
         for e in bucket:
             if e.key == key:
                 return e.value
+        raise KeyError(key)
 
     def rehash(self):
         """Creates a larger bucket table and reinserts all entries"""
