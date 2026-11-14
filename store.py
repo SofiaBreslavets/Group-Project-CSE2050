@@ -4,6 +4,7 @@ from customer import Customer
 from product import Product
 from order import Order
 from cart import ShoppingCart
+from hash_mapping import hash_mapping
 from algorithms import (
     bubble_sort,
     selection_sort,
@@ -20,6 +21,7 @@ class Store:
         self.customer_ids: list[str] = []
         self.products: list[Product] = []
         self.product_ids: list[str] = []
+        self.product_map = hash_mapping()
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.order_queue = OrderQueue()
@@ -40,6 +42,7 @@ class Store:
         self.products.append(product)
         self.product_ids.append(product.product_id)
         self.price.append(product.price)
+        self.product_map.put(product.product_id, product)
         return True 
 
     def find_customer(self, customer_id: str):
@@ -48,7 +51,7 @@ class Store:
     
     def find_product(self, product_id: str):
         """ Returns product object if found, otherwise returns None"""
-        return next((p for p in self.products if p.product_id == product_id), None)
+        return self.product_map.get(product_id)
 
     def find_order(self, order_id: str):
         """ Returns order object if found, otherwise returns None"""
@@ -104,16 +107,21 @@ class Store:
     def binary_search_product(self, product_id: str):
         """Finds and returns a product using binary search."""
         index = binary_search(self.products, product_id)
-
-        if index == -1:
-            return None
-
-        return self.products[index]
+        return None if index == -1 else self.products[index]
 
     def recursive_catalog_total(self):
         """Returns the total price of all products recursively."""
         return recursive_total_price(self.products)
 
     def calculate_change(self, coins: list[int], amount: int):
-        """Returns the fewest coins needed to make the given amount."""
+        """Returns the minimum number of coins needed, or -1 if impossible."""
         return fewest_coins(coins, amount)
+
+    def merge_sort_products(self):
+        merge_sort(self, self.products)
+
+    def quick_sort_products(self):
+        quick_sort(self, self.products)
+
+    def quick_select_products(self, k: int):
+        quick_select(self, self.products, k)
