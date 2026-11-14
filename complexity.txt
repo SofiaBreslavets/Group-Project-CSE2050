@@ -45,3 +45,26 @@ Big O time complexity for M3
     Store.recursive_catalog_total = O(n^2)
 
     Store.calculate_change = O(n^2)
+
+Time complexity for M4
+    
+    merge_sort (worst case) = O(n log n)
+    
+    quick_sort (average case) = Theta(n log n)
+    
+    quick_sort (worst case) = O(n^2)
+    
+    quick_select (average case) = Theta(n)
+    
+    quick_select (worst case) = O(n^2)
+    
+    HashMapping.put (average case, amortized) = Theta(1)
+    
+    HashMapping.get (average case) = Theta(1)
+    
+    HashMapping.get (worst case) = O(n)
+    
+    HashMapping.rehash = O(n)
+    
+    Store.find_product (worst case) = O(n)
+
