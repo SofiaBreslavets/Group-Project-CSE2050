@@ -4,7 +4,7 @@ from customer import Customer
 from product import Product
 from order import Order
 from cart import ShoppingCart
-from hash_mapping import HashMapping
+from hash_mapping import hash_mapping
 from algorithms import (
     bubble_sort,
     selection_sort,
@@ -24,7 +24,7 @@ class Store:
         self.customer_ids: list[str] = []
         self.products: list[Product] = []
         self.product_ids: list[str] = []
-        self.product_map = HashMapping()
+        self.product_map = hash_mapping()
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.order_queue = OrderQueue()
@@ -54,7 +54,10 @@ class Store:
     
     def find_product(self, product_id: str):
         """ Returns product object if found, otherwise returns None"""
-        return self.product_map.get(product_id)
+        try:
+            return self.product_map.get(product_id)
+        except KeyError:
+            return None
 
     def find_order(self, order_id: str):
         """ Returns order object if found, otherwise returns None"""
@@ -121,10 +124,13 @@ class Store:
         return fewest_coins(coins, amount)
 
     def merge_sort_products(self):
-        merge_sort(self, self.products)
+        self.products = merge_sort(self, self.products)
 
     def quick_sort_products(self):
-        quick_sort(self, self.products)
+        self.products = quick_sort(self, self.products)
+
+    def quick_select_product(self, k: int):
+        return quick_select(self, self.products, k)
 
     def quick_select_products(self, k: int):
-        quick_select(self, self.products, k)
+        return self.quick_select_product(k)
