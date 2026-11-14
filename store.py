@@ -4,7 +4,7 @@ from customer import Customer
 from product import Product
 from order import Order
 from cart import ShoppingCart
-from hash_mapping import hash_mapping
+from hash_mapping import HashMapping
 from algorithms import (
     bubble_sort,
     selection_sort,
