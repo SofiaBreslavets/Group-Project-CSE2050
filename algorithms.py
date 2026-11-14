@@ -67,12 +67,67 @@ def binary_search(products, product_id):
             right = mid - 1
     return -1
 
-def quick_sort(products):
-    pass
+def quick_sort(self, products):
+    if len(products) <= 1:
+        return products
+    pivot = products[len(products) // 2]
+    left = [x for x in products if x.product_id < pivot.product_id]
+    middle = [x for x in products if x.product_id == pivot.product_id]
+    right = [x for x in products if x.product_id > pivot.product_id]
+    return quick_sort(self, left) + middle + quick_sort(self, right)
 
-def merge_sort(products):
-    pass
+def merge_sort(self, products):
+    products = list(products)
+    if len(products) <= 1:
+        return products
+    midpoint = len(products) // 2
+    left = merge_sort(self, products[:midpoint])
+    right = merge_sort(self, products[midpoint:])
+    merged = []
+    left_index = 0
+    right_index = 0
 
-def quick_select(products, k):
-    pass
-    
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index].product_id <= right[right_index].product_id:
+            merged.append(left[left_index])
+            left_index += 1
+        else:
+            merged.append(right[right_index])
+            right_index += 1
+
+    merged.extend(left[left_index:])
+    merged.extend(right[right_index:])
+    return merged
+
+def quick_select(self, products, k):
+    products = list(products)
+    if k < 1 or k > len(products):
+        raise ValueError("k is out of bounds")
+    target_index = k - 1
+    low = 0
+    high = len(products) - 1
+
+    while low <= high:
+        pivot_id = products[(low + high) // 2].product_id
+        lower = low
+        current = low
+        upper = high
+
+        while current <= upper:
+            product_id = products[current].product_id
+            if product_id < pivot_id:
+                products[lower], products[current] = products[current], products[lower]
+                lower += 1
+                current += 1
+            elif product_id > pivot_id:
+                products[current], products[upper] = products[upper], products[current]
+                upper -= 1
+            else:
+                current += 1
+
+        if target_index < lower:
+            high = lower - 1
+        elif target_index > upper:
+            low = upper + 1
+        else:
+            return products[target_index]
