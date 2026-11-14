@@ -11,7 +11,10 @@ from algorithms import (
     insertion_sort,
     binary_search,
     recursive_total_price,
-    fewest_coins
+    fewest_coins,
+    quick_sort,
+    merge_sort,
+    quick_select
 )
 
 class Store:
