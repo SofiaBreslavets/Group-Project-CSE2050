@@ -1,12 +1,8 @@
 
 class Entry:
-    """Stores one key-value pair"""
-
     def __init__(self, key, value):
-        """Initialize the key and value"""
         self.key = key
         self.value = value
-
 
 
 class HashMapping:
@@ -73,8 +69,7 @@ class HashMapping:
         old_L = self._L
         self._n_buckets *= 2
         self._L = [[] for i in range(self._n_buckets)]
-
         for bucket in old_L:
-            for e in bucket:
-                idx = self._find_bucket(e.key)
-                self._L[idx].append(e)
+            for entry in bucket:
+                idx = self._find_bucket(entry.key)
+                self._L[idx].append(entry)
