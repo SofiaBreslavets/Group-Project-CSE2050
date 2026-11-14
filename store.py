@@ -24,7 +24,7 @@ class Store:
         self.customer_ids: list[str] = []
         self.products: list[Product] = []
         self.product_ids: list[str] = []
-        self.product_map = hash_mapping()
+        self.product_map = HashMapping()
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.order_queue = OrderQueue()
