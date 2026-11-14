@@ -76,13 +76,15 @@ def quick_sort(self, products):
     right = [x for x in products if x.product_id > pivot.product_id]
     return quick_sort(self, left) + middle + quick_sort(self, right)
 
-def merge_sort(self, products):
-    products = list(products)
+def merge_sort(products, maybe_products=None):
+    if maybe_products is not None:
+        products = maybe_products
+    products = list(products)  # Create a copy to avoid modifying the original list
     if len(products) <= 1:
         return products
     midpoint = len(products) // 2
-    left = merge_sort(self, products[:midpoint])
-    right = merge_sort(self, products[midpoint:])
+    left = merge_sort(products[:midpoint])
+    right = merge_sort(products[midpoint:])
     merged = []
     left_index = 0
     right_index = 0
@@ -99,8 +101,10 @@ def merge_sort(self, products):
     merged.extend(right[right_index:])
     return merged
 
-def quick_select(self, products, k):
-    products = list(products)
+def quick_select(products, k, maybe_k=None):
+    if maybe_k is not None:
+        products, k = k, maybe_k
+    products = list(products)  # Create a copy to avoid modifying the original list
     if k < 1 or k > len(products):
         raise ValueError("k is out of bounds")
     target_index = k - 1
