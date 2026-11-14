@@ -67,19 +67,21 @@ def binary_search(products, product_id):
             right = mid - 1
     return -1
 
-def quick_sort(self, products):
+def quick_sort(products, maybe_products=None):
+    if maybe_products is not None:
+        products = maybe_products
     if len(products) <= 1:
         return products
     pivot = products[len(products) // 2]
     left = [x for x in products if x.product_id < pivot.product_id]
     middle = [x for x in products if x.product_id == pivot.product_id]
     right = [x for x in products if x.product_id > pivot.product_id]
-    return quick_sort(self, left) + middle + quick_sort(self, right)
+    products[:] = quick_sort(left) + middle + quick_sort(right)
+    return products
 
 def merge_sort(products, maybe_products=None):
     if maybe_products is not None:
         products = maybe_products
-    products = list(products)  # Create a copy to avoid modifying the original list
     if len(products) <= 1:
         return products
     midpoint = len(products) // 2
@@ -99,14 +101,15 @@ def merge_sort(products, maybe_products=None):
 
     merged.extend(left[left_index:])
     merged.extend(right[right_index:])
-    return merged
+    products[:] = merged
+    return products
 
 def quick_select(products, k, maybe_k=None):
     if maybe_k is not None:
         products, k = k, maybe_k
     products = list(products)  # Create a copy to avoid modifying the original list
     if k < 1 or k > len(products):
-        raise ValueError("k is out of bounds")
+        return None
     target_index = k - 1
     low = 0
     high = len(products) - 1
