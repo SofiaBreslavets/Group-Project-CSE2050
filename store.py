@@ -4,7 +4,7 @@ from customer import Customer
 from product import Product
 from order import Order
 from cart import ShoppingCart
-from hash_mapping import hash_mapping
+from hash_mapping import HashMapping
 from algorithms import (
     bubble_sort,
     selection_sort,
@@ -24,7 +24,7 @@ class Store:
         self.customer_ids: list[str] = []
         self.products: list[Product] = []
         self.product_ids: list[str] = []
-        self.product_map = hash_mapping()
+        self.product_map = HashMapping()
         self.price: list[float] = []
         self.orders: list[Order] = []
         self.order_queue = OrderQueue()
